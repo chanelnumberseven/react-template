@@ -7,10 +7,10 @@ export default class componentD extends React.Component {
     render() {
         return (
             <div>
-                <h1>d</h1>
+                <h1>c</h1>
                 <Switch>
-                    <Route path="/d/d-a" component={loadable(() => import('./a'), { fallback: <Loading /> })}></Route>
-                    <Route path="/d/d-b" component={loadable(() => import('./b'), { fallback: <Loading /> })}></Route>
+                    <Route path="/e/e-c/e-c-a" component={loadable(() => import('./a'), { fallback: <Loading /> })}></Route>
+                    <Route path="/e/e-c/e-c-b" component={loadable(() => import('./b'), { fallback: <Loading /> })}></Route>
                 </Switch>
             </div>
         )
