@@ -34,8 +34,8 @@ function AppRoute() {
   return (
     <Switch>
       <Route path="/a" component={loadable(()=>import('./../views/a'),{fallback:<Loading/>})}></Route>
-      <Route path="/b" component={loadable(()=>import('./../views/b'),{fallback:<Loading/>})}></Route>
-      <Route path="/c" component={loadable(()=>import('./../views/c'),{fallback:<Loading/>})}></Route>
+      <Route path="/d" component={loadable(()=>import('./../views/d/index'),{fallback:<Loading/>})}></Route>
+      <Route path="/e" component={loadable(()=>import('./../views/e'),{fallback:<Loading/>})}></Route>
       <Route path="/">root</Route>
     </Switch>
   )
