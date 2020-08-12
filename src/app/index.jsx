@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Layout } from "antd";
 import HeaderBar from "./header";
 import SideBar from "./side";
-import loadable from "@loadable/component";
 import Loading from "@/components/loading";
-import Page404 from "@/components/404"
+import Page404 from "@/components/404";
+import Crumb from "@/components/crumb";
 const { Header, Sider, Content } = Layout;
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
             <SideBar></SideBar>
           </Sider>
           <Content>
+            <Crumb></Crumb>
             <AppRoute />
           </Content>
         </Layout>
@@ -29,28 +30,26 @@ function App() {
 
 function AppRoute() {
   return (
-    <Switch>
-      <Route
-        path="/a"
-        component={loadable(() => import("@/views/a"), {
-          fallback: <Loading />,
-        })}
-      ></Route>
-      <Route
-        path="/d"
-        component={loadable(() => import("@/views/d/index"), {
-          fallback: <Loading />,
-        })}
-      ></Route>
-      <Route
-        path="/e"
-        component={loadable(() => import("@/views/e/index"), {
-          fallback: <Loading />,
-        })}
-      ></Route>
-      <Route exact path="/">root</Route>
-      <Route path="*" children={<Page404/>}></Route>
-    </Switch>
+    <Suspense fallback={<Loading />}>
+      <Switch>
+        <Route
+          path="/a"
+          component={lazy(() => import("@/views/a"))}
+        ></Route>
+        <Route
+          path="/d"
+          component={lazy(() => import("@/views/d/index"))}
+        ></Route>
+        <Route
+          path="/e"
+          component={lazy(() => import("@/views/e/index"))}
+        ></Route>
+        <Route exact path="/">
+          root
+        </Route>
+        <Route path="*" children={<Page404 />}></Route>
+      </Switch>
+    </Suspense>
   );
 }
 

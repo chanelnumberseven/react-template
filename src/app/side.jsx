@@ -59,10 +59,10 @@ export default class Side extends React.Component {
           </Menu.Item>
           <SubMenu key="/e-c" title="e-c">
             <Menu.Item key="/e-c-a">
-              <Link to="/e/c/e-c-a">e-c-a</Link>
+              <Link to="/e/e-c/e-c-a">e-c-a</Link>
             </Menu.Item>
             <Menu.Item key="/e-c-b">
-              <Link to="/e/c/e-c-b">e-c-b</Link>
+              <Link to="/e/e-c/e-c-b">e-c-b</Link>
             </Menu.Item>
           </SubMenu>
         </SubMenu>
