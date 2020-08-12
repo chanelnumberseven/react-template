@@ -21,9 +21,8 @@ export default class Side extends React.Component {
   }
   setConfig(state) {
     let path = window.location.pathname;
-    let paths = path.match(/\/[^/]+/g);
+    let paths = path.match(/\/[^/]+/g)||[];
     state.defaultKey = paths;
-    console.log(paths);
   }
   toggleCollapsed() {
     this.setState({
