@@ -136,7 +136,8 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react-app",
+      "@babel/preset-flow"
     ]
   },
   "devDependencies": {

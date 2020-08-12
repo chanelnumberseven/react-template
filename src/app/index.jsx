@@ -20,6 +20,7 @@ function App() {
           </Sider>
           <Content>
             <Crumb></Crumb>
+            {process.env.REACT_APP_NOT_SECRET_CODE}
             <AppRoute />
           </Content>
         </Layout>
