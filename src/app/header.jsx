@@ -4,7 +4,7 @@ import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/ico
 
 const { SubMenu } = Menu;
 
-export default class App extends React.Component {
+export default class App extends React.PureComponent {
   state = {
     current: 'mail',
   };

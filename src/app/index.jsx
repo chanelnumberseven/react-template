@@ -6,6 +6,8 @@ import SideBar from "./side";
 import Loading from "@/components/loading";
 import Page404 from "@/components/404";
 import Crumb from "@/components/crumb";
+import Error from "@/components/error";
+
 const { Header, Sider, Content } = Layout;
 function App() {
   return (
@@ -19,9 +21,11 @@ function App() {
             <SideBar></SideBar>
           </Sider>
           <Content>
-            <Crumb></Crumb>
-            {process.env.REACT_APP_NOT_SECRET_CODE}
-            <AppRoute />
+            <Error>
+              <Crumb></Crumb>
+              {process.env.REACT_APP_NOT_SECRET_CODE}
+              <AppRoute />
+            </Error>
           </Content>
         </Layout>
       </Layout>
@@ -33,10 +37,8 @@ function AppRoute() {
   return (
     <Suspense fallback={<Loading />}>
       <Switch>
-        <Route
-          path="/a"
-          component={lazy(() => import("@/views/a"))}
-        ></Route>
+        <Route path="/a" component={lazy(() => import("@/views/a"))}></Route>
+        <Route path="/c" component={lazy(() => import("@/views/c"))}></Route>
         <Route
           path="/d"
           component={lazy(() => import("@/views/d/index"))}

@@ -39,7 +39,10 @@ export default class Side extends React.Component {
         theme="dark"
       >
         <Menu.Item key="/a" icon={<PieChartOutlined />}>
-          <Link to="/a">a</Link>
+          <Link to="/a">error</Link>
+        </Menu.Item>
+        <Menu.Item key="/c" icon={<PieChartOutlined />}>
+          <Link to="/c">modal</Link>
         </Menu.Item>
         <SubMenu key="/d" icon={<MailOutlined />} title="d">
           <Menu.Item key="/d-a">
